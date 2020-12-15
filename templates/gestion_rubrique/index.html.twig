@@ -1,0 +1,32 @@
+{% extends 'baseRedacteur.html.twig' %}
+
+{% block title %} GestionRubrique {% endblock %}
+
+{% block titrePage %}
+
+    Gérer les rubriques
+
+{% endblock %}
+
+{% block body %}
+    <br>
+    <td><a href="{{path('ajouter_rubrique')}}" class="btn btn-light" style="margin-left: 3%">Ajouter</a></td>
+    <Table class="table" align="center" style="margin: auto;width: 80%">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Rubrique</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        {% for rubrique in rubriques %}
+            <tr>
+                <td>{{ rubrique.id }}</td>
+                <td>{{ rubrique.nomRubrique}}</td>
+                <td><a href="{{ path('modifier_rubrique',{'id': rubrique.id}) }}" type="button" class="btn btn-secondary">Modifier</a></td>
+                <td><a href="{{ path('supprimer_rubrique',{'id': rubrique.id}) }}" type="button" class="btn btn-secondary">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </Table>
+{% endblock%}

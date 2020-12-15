@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Rubriques {% endblock %}
+
+{% block titrePage %}
+
+    Rubriques
+
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="width: 80%;margin: auto">
+    {% for rubrique in rubriques %}
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card mb-3 mx-auto">
+                        <div class="card bg-dark text-white">
+                            <img src="https://post.greatist.com/wp-content/uploads/sites/2/2019/05/Crunches_Cardio-1800.jpg" class="card-img">
+                            <div class="card-img-overlay">
+                                <a href="{{ path('id',{ 'id':rubrique.id}) }}"  class="btn btn-outline-dark "><h5 class="card-title">{{ rubrique.NomRubrique }}</h5></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    {% endfor %}
+    </div>
+{% endblock %}

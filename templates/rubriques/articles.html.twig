@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Articles {% endblock %}
+
+{% block titrePage %}
+
+    Articles
+
+{% endblock %}
+
+{% block body %}
+    <table class="table">
+    {% for article in articles %}
+        <tr>
+            <td><h2>{{ article.nomArticle }}</h2></td>
+            <td>{{ article.description }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
